@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile</title>
+
+<style>
+body{margin:0;font-family:'Segoe UI';background:#f4f7fb;}
+
+nav{background:#0d1b2a;color:white;padding:15px;display:flex;justify-content:space-between;}
+nav a{color:white;margin:10px;text-decoration:none;}
+
+.banner{
+background:url('https://images.unsplash.com/photo-1522071820081-009f0129c71c') center/cover;
+height:180px;
+}
+
+.profile{
+background:white;
+width:350px;
+margin:-60px auto 20px;
+padding:20px;
+text-align:center;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.profile img{
+width:100px;
+border-radius:50%;
+border:4px solid white;
+margin-top:-50px;
+}
+
+.events{
+background:white;
+width:350px;
+margin:20px auto;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div>EduPortal</div>
+<div>
+<a href="dashboard.html">Home</a>
+<a href="courses.html">Events</a>
+<a href="profile.html">Profile</a>
+<a href="contact.html">Contact</a>
+<a href="#" onclick="logout()">Logout</a>
+</div>
+</nav>
+
+<div class="banner"></div>
+
+<div class="profile">
+<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+<h2 id="name"></h2>
+<p id="email"></p>
+</div>
+
+<div class="events">
+<h3>🎟 My Events</h3>
+<p id="events"></p>
+</div>
+
+<script>
+function logout(){localStorage.removeItem("currentUser");location="index.html";}
+
+let u=JSON.parse(localStorage.getItem(localStorage.getItem("currentUser")));
+
+name.innerHTML=u.name;
+email.innerHTML=u.email;
+events.innerHTML=u.events.map(e=>e.name).join(", ") || "No events joined";
+</script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact</title>
+
+<style>
+body{margin:0;font-family:'Segoe UI';}
+
+/* HEADER */
+nav{
+background:#0d1b2a;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+}
+
+/* SPLIT LAYOUT */
+.container{
+display:flex;
+height:calc(100vh - 60px);
+}
+
+.left{
+flex:1;
+background:url('https://images.unsplash.com/photo-1521791136064-7986c2920216') center/cover;
+}
+
+.right{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#f4f7fb;
+}
+
+/* FORM */
+.form{
+background:white;
+padding:30px;
+width:320px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0077b6;
+color:white;
+border:none;
+border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<nav>
+<div><b>EduPortal</b></div>
+<div>
+<a href="dashboard.html">Home</a>
+<a href="courses.html">Events</a>
+<a href="profile.html">Profile</a>
+<a href="contact.html">Contact</a>
+<a href="#" onclick="logout()">Logout</a>
+</div>
+</nav>
+
+<div class="container">
+
+<div class="left"></div>
+
+<div class="right">
+<div class="form">
+<h2>Contact Us</h2>
+
+<label>Name</label>
+<input type="text">
+
+<label>Email</label>
+<input type="email">
+
+<label>Message</label>
+<textarea rows="4"></textarea>
+
+<button onclick="alert('Message sent!')">Send</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function logout(){
+localStorage.removeItem("currentUser");
+location="index.html";
+}
+</script>
+
+</body>
+</html>
